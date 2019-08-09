@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {Form, Field, withFormik} from 'formik';
-// import * as Yup from 'yup';
+import * as Yup from 'yup';
 
 class UserForm extends React.Component {
   constructor() {
@@ -20,18 +20,18 @@ class UserForm extends React.Component {
           <div className="input">
             <h3 className="header">username: </h3>
             <Field type="text" name="username" placeholder="username" />*
-            {/* {props.touched.username && props.errors.username && (
+            {props.touched.username && props.errors.username && (
               <p>{props.errors.username}</p>
-            )} */}
+            )}
             </div>
 
         {/* // password input  */}
         <div className="input">
         <h3 className="header">Password: </h3>
         <Field type="password" name="password" placeholder="password" />*
-        {/* {props.touched.password && props.errors.password && (
+        {props.touched.password && props.errors.password && (
           <p>{props.errors.password}</p>
-        )} */}
+        )}
         </div>
 
          {/* // submit button  */}
@@ -42,5 +42,40 @@ class UserForm extends React.Component {
     );
   }
 }
+
+// Higher Order Component - returns copy of UserForm but w/ extended logic 
+const FormikUserForm = withFormik({
+    mapPropsToValues(values) {
+      return {
+        username: values.username || "",
+        password: values.password || "",
+      };
+    },
+
+    // Yup form validation 
+    // these give you the error props you need to apply under each corresponding <Field> input
+    validationSchema: Yup.object().shape({
+        name: Yup.string().required(),
+        password: Yup.string()
+          .min(6)
+          .required(),
+      }),
+
+
+    handleSubmit(values, { setStatus, resetForm }) {
+      axios
+        .post("http://localhost:5000/api/register", values)
+        .then(response => {
+          console.log(response);
+          setStatus(response.data);
+        })
+        .catch(error => console.log(error.response));
+        resetForm(); // form reset on submit 
+    }
+  })(UserForm); // currying functions in Javascript
+  
+
+
+
 
 export default UserForm;
