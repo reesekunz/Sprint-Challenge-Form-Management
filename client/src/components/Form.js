@@ -7,12 +7,33 @@ class UserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: " ",
-      password: " "
+      users: [],
     };
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.user !== this.state.user) {
+      this.fetchusers();
+    }
+}
+
+  getUserData = () => {
+    axios
+    .get("http://localhost:5000/api/restricted/data")
+      .then(users => this.setState({ users }))
+      .catch(error => {
+        console.log("error", error);
+      });
+  }
+  componentDidMount() {
+    console.log("component mounted, data = ", this.state.users);
+    this.getUserData();
+  }
+
+  
+
   render() {
+    console.log(this.state.users);
     return (
       <div className="user-form">
         <h1>User Form</h1>
@@ -22,17 +43,17 @@ class UserForm extends React.Component {
             <h3 className="header">username: </h3>
             <Field type="text" name="name" placeholder="username" />*
             {this.props.touched.name && this.props.errors.name && (
-                <p>{this.props.errors.name}</p>
+              <p>{this.props.errors.name}</p>
             )}
           </div>
 
           {/* // password input  */}
           <div className="input">
-            <h3 className="header">Password: </h3>
+            <h3 className="header">password: </h3>
             <Field type="password" name="password" placeholder="password" />*
             {this.props.touched.password && this.props.errors.password && (
-          <p>{this.props.errors.password}</p>
-        )}
+              <p>{this.props.errors.password}</p>
+            )}
           </div>
 
           {/* // submit button  */}
@@ -40,6 +61,13 @@ class UserForm extends React.Component {
             Submit!
           </button>
         </Form>
+
+        {this.state.users.map(user => (
+          <div className="displayuser" key={user.id}>
+            <div className="info"> Name: {user.name} </div>
+            <div className="info">Password: {user.password}</div>
+          </div>
+        ))}
       </div>
     );
   }
@@ -68,7 +96,7 @@ const FormikUserForm = withFormik({
       .post("http://localhost:5000/api/register", values)
       .then(response => {
         console.log(response);
-        setStatus(response.data);
+        setStatus(response);
       })
       .catch(error => console.log(error.response));
     resetForm(); // form reset on submit
