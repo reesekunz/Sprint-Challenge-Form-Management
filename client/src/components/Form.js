@@ -11,27 +11,21 @@ class UserForm extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.user !== this.state.user) {
-      this.fetchusers();
-    }
-}
+//   componentDidUpdate(prevProps, prevState) {
+//     if (prevState.user !== this.state.user) {
+//       this.fetchusers();
+//     }
+// }
 
-  getUserData = () => {
-    axios
-    .get("http://localhost:5000/api/restricted/data")
-      .then(users => this.setState({ users }))
-      .catch(error => {
-        console.log("error", error);
-      });
-  }
-  componentDidMount() {
-    console.log("component mounted, data = ", this.state.users);
-    this.getUserData();
+componentDidMount() {
+    axios.get(`http://localhost:5000/api/restricted/data`)
+      .then(response => {
+        const users = response.data;
+        this.setState({ users });
+      })
   }
 
   
-
   render() {
     console.log(this.state.users);
     return (
@@ -63,7 +57,7 @@ class UserForm extends React.Component {
         </Form>
 
         {this.state.users.map(user => (
-          <div className="displayuser" key={user.id}>
+          <div className="displayuser" key={user.name}>
             <div className="info"> Name: {user.name} </div>
             <div className="info">Password: {user.password}</div>
           </div>
