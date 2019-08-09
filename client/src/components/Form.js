@@ -11,11 +11,11 @@ class UserForm extends React.Component {
     };
   }
 
-//   componentDidUpdate(prevProps, prevState) {
-//     if (prevState.user !== this.state.user) {
-//       this.fetchusers();
-//     }
-// }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.user !== this.state.user) {
+      this.fetchusers();
+    }
+}
 
 componentDidMount() {
     axios.get(`http://localhost:5000/api/restricted/data`)
