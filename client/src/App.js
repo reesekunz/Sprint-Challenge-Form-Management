@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <span className="app-header">User Form</span>
+      <div className="app-header">User Form</div>
      <FormikUserForm />
      <GetData />
     </div>

@@ -11,3 +11,74 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.app-header {
+  font-size: 3rem;
+  font-family: "Bookman";
+  border: 3px solid black;
+  padding: 3%;
+  background-color: maroon;
+  color: white;
+  box-shadow: 3px 7px black;
+  width: 100%;
+  display: in-line block;
+  justify-content: center;
+  align-items: center;
+}
+
+.foods {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.recipe .meal {
+  border: 2px solid black;
+  height: 4rem;
+}
+
+.meal {
+  display: flex;
+  flex-direction: row;
+  padding-left: 2.5%;
+  padding-top: 2.5%;
+
+}
+
+.ingredients {
+border: 2px solid black;
+height: 6rem;
+box-shadow: 3px 7px black;
+display: flex;
+flex-direction: row;
+
+}
+
+.meal-name {
+border: 2px solid black;
+border-top: 3px solid black;
+height: 4rem;
+background-color: teal;
+color: white;
+margin-top: 2%;
+font-size: 1.3rem;
+font-family: "Bookman";
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.button {
+  margin-top: 3%;
+  height: 30px;
+  width: auto;
+  border: 1.5px solid black;
+}
+
+.input {
+  margin-top: 3%;
+
+}

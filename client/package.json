@@ -13,6 +13,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "transform": {
+    "\\.js$": "<rootDir>/node_modules/babel-jest"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },

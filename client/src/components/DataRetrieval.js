@@ -28,16 +28,18 @@ class GetData extends React.Component {
     console.log(this.state.meals);
 
     return (
-      <ul>
+      <div className="foods">
         {this.state.meals.map(meal => (
           <div className="recipe" key={meal.name}>
-            <div className="meal">Meal: {meal.name}</div>
-            <div className="course">Course: {meal.course}</div>
-            <div className="technique">Technique: {meal.technique}</div>
-            <div className="ingredients">Ingredients: {meal.ingredients}</div>
+            <div className="meal-name">{meal.name}</div>
+            <div className="meal">Course: {meal.course}</div>
+            <div className="meal">Technique: {meal.technique}</div>
+            <div className="ingredients">Ingredients: {meal.ingredients[0]}
+            {meal.ingredients[1]} {meal.ingredients[2]}
+            </div>
           </div>
         ))}
-      </ul>
+      </div>
     );
   }
 }
