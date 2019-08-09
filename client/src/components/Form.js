@@ -14,11 +14,10 @@ const UserForm = props => {
 
   return (
     <div className="user-form">
-      <h1>User Form</h1>
       <Form>
         {/* // Username Input  */}
         <div className="input">
-          <h3 className="header">Username: </h3>
+          <h3 className="header">Username </h3>
           <Field type="text" name="name" placeholder="Name" />*
           {props.touched.name && props.errors.name && (
             <p>{props.errors.name}</p>
@@ -27,7 +26,7 @@ const UserForm = props => {
 
         {/* // Password Input  */}
         <div className="input">
-          <h3 className="header">Password: </h3>
+          <h3 className="header">Password </h3>
           <Field type="password" name="password" placeholder="Password" />*
           {props.touched.password && props.errors.password && (
             <p>{props.errors.password}</p>
