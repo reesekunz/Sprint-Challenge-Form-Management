@@ -3,10 +3,6 @@ import axios from "axios";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 
-exports.sum = function(a,b) {
-  return a + b;
-}
-
 const UserForm = props => {
   const [users, setUsers] = useState([]);
 
