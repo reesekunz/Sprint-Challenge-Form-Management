@@ -21,23 +21,22 @@ class UserForm extends React.Component {
           <div className="input">
             <h3 className="header">username: </h3>
             <Field type="text" name="name" placeholder="username" />*
-            {/* {this.props.touched.name && this.props.errors.name && (
+            {this.props.touched.name && this.props.errors.name && (
                 <p>{this.props.errors.name}</p>
-            )} */}
+            )}
           </div>
 
           {/* // password input  */}
           <div className="input">
             <h3 className="header">Password: </h3>
             <Field type="password" name="password" placeholder="password" />*
-            {/* {this.props.touched.password && this.props.errors.password && (
+            {this.props.touched.password && this.props.errors.password && (
           <p>{this.props.errors.password}</p>
-        )} */}
+        )}
           </div>
 
           {/* // submit button  */}
           <button className="button" type="submit">
-            {" "}
             Submit!
           </button>
         </Form>
