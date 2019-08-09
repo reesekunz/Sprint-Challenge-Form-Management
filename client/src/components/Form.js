@@ -3,6 +3,10 @@ import axios from "axios";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 
+exports.sum = function(a,b) {
+  return a + b;
+}
+
 const UserForm = props => {
   const [users, setUsers] = useState([]);
 
@@ -41,13 +45,13 @@ const UserForm = props => {
         </button>
       </Form>
 
-      {/* Mapping each user and displaying their submitted info  */}
+      {/* Mapping each user and displaying their submitted info 
       {users.map(user => (
         <div className="displayuser" key={user.id}>
           <div className="info"> Name: {user.name} </div>
           <div className="info">Password: {user.password}</div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

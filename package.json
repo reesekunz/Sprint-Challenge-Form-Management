@@ -3,5 +3,26 @@
     "axios": "^0.19.0",
     "formik": "^1.5.8",
     "yup": "^0.27.0"
-  }
+  },
+  "name": "Sprint-Challenge-Form-Management",
+  "description": "This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored class components and lifecycle methods, advanced form management, and unit testing.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reesekunz/Sprint-Challenge-Form-Management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reesekunz/Sprint-Challenge-Form-Management/issues"
+  },
+  "homepage": "https://github.com/reesekunz/Sprint-Challenge-Form-Management#readme"
 }
